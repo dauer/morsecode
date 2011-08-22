@@ -1,6 +1,7 @@
 # !/bin/sh
 
 WORDS=0
+STR=''
 
 for x in `cat`
 do
@@ -9,8 +10,8 @@ do
     fi
     x=`echo $x | tr -cd '[[a-zA-z0-9]]'`
     x=`echo $x | tr '[:lower:]' '[:upper:]'`
-    echo $x | fold -w1 | sed -f alphabet-morse.sed | tr '\n' '/';
+    STR=$STR`echo $x | fold -w1 | sed -f alphabet-morse.sed | tr '\n' '/'`;
     let WORDS=WORDS+1;
 done
 
-echo '';
+echo ${STR%\/}
