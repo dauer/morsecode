@@ -5,7 +5,7 @@ WORDS=0
 for x in `cat`
 do
     if [ $WORDS -gt 0 ]; then
-        echo -n '//'
+        echo -n '/'
     fi
     x=`echo $x | tr -cd '[[a-zA-z0-9]]'`
     x=`echo $x | tr '[:lower:]' '[:upper:]'`
